@@ -35,10 +35,10 @@ char static_gw[16] = "192.168.3.1";
 char static_mask[16] = "255.255.255.0";
 char static_dns[16] = "192.168.3.1";
 // [Please CHANGE THIS] - TimeZone/Town/Latitude/longitude
-const String timeZone = "Europe%2FParis";
-const String townName = "Toulouse";
-const String townLat = "43.603951";
-const String townLon = "1.444510";
+const String timeZone = "Asia%2FManila";
+const String townName = "Marikina";
+const String townLat = "14.6507";
+const String townLon = "121.1028";
 
 WebServer server(80);
 
