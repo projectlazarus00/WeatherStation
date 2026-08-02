@@ -87,7 +87,3 @@ bool getTime(void *) {
   }
 }
 
-void loop() {
-  Serial.println("Alive...");
-  delay(1000);
-}
