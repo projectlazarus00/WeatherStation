@@ -16,23 +16,23 @@ void setup() {
   Serial.println(VW_Version);
 
   //--- WiFi connection using Captive_AP.
-  wifiManager.setConfigPortalTimeout(5000);
-  IPAddress _ip,_gw,_mask,_dns;
-  _ip.fromString(static_ip);
-  _gw.fromString(static_gw);
-  _mask.fromString(static_mask);
-  _dns.fromString(static_dns);
+  //--- WiFi connection using hardcoded credentials
+WiFi.begin("No Internet", "ZuriTemi0912#");
 
-  wifiManager.setHostname(staHostname);
-  wifiManager.setSTAStaticIPConfig(_ip,_gw,_mask,_dns);
+int wifiAttempts = 0;
+while (WiFi.status() != WL_CONNECTED && wifiAttempts < 40) {
+  delay(500);
+  Serial.print(".");
+  wifiAttempts++;
+}
 
-  if(!wifiManager.autoConnect("AP_WifiConfig","password")) {
-    Serial.println("Failed to connect and hit timeout");
-    delay(3000);
-    ESP.restart();
-  }
+if (WiFi.status() != WL_CONNECTED) {
+  Serial.println("Failed to connect and hit timeout");
+  delay(3000);
+  ESP.restart();
+}
 
-  Serial.println("INFO: connected to WiFi");
+Serial.println("INFO: connected to WiFi");
 
   setupApi();
   getTime(NULL);
