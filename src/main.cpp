@@ -1,5 +1,6 @@
 #include <Arduino.h>
-#include <WiFi.h>
+#include "WeatherStation.h"
+#include <arduino-timer.h>
 
 const char* ssid = "No Internet";
 const char* password = "ZuriTemi0912#";
