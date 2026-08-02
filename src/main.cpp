@@ -4,6 +4,7 @@
 
 const char* ssid = "No Internet";
 const char* password = "ZuriTemi0912#";
+auto timer = timer_create_default();
 
 void setup() {
   Serial.begin(115200);
