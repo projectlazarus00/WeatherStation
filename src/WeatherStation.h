@@ -3,7 +3,7 @@
 #define _WEATHER_STATION_H
 
 #include <Arduino.h>
-#include <WiFiManager.h>
+#include <WiFi.h>
 #include <WebServer.h>
 #include <TFT_eSPI.h>
 #include <ArduinoJson.h>
@@ -27,7 +27,7 @@ TFT_eSPI tft = TFT_eSPI();
 TFT_eSprite sprite = TFT_eSprite(&tft);
 
 // Network and Web app related
-WiFiManager wifiManager;
+// WiFiManager wifiManager;
 String staHostname = "WeatherStation";      // Not sure it"s usefull to configure hostname.
 // [Please CHANGE THIS] - Custom Static adress for the Weather Station
 char static_ip[16] = "192.168.3.10";
