@@ -6,6 +6,9 @@ const char* ssid = "No Internet";
 const char* password = "ZuriTemi0912#";
 auto timer = timer_create_default();
 
+sensorData fromSensor;
+int watchDog = 0;
+
 void setup() {
   Serial.begin(115200);
   while (!Serial) {}; 
