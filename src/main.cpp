@@ -1,21 +1,28 @@
 #include <Arduino.h>
-#include <WiFiManager.h>
+#include <WiFi.h>
+
+const char* ssid = "No Internet";
+const char* password = "ZuriTemi0912#";
 
 void setup() {
   Serial.begin(115200);
-  delay(2000);
-  Serial.println("Test starting...");
+  delay(1000);
+  Serial.println("Starting WiFi test...");
 
-  WiFiManager wm;
-  Serial.println("WiFiManager object created OK");
+  WiFi.begin(ssid, password);
 
-  bool res = wm.autoConnect("WeatherStation-Test");
+  int attempts = 0;
+  while (WiFi.status() != WL_CONNECTED && attempts < 20) {
+    delay(500);
+    Serial.println("Connecting...");
+    attempts++;
+  }
 
-  Serial.println("autoConnect() returned");
-  if (res) {
+  if (WiFi.status() == WL_CONNECTED) {
     Serial.println("WiFi connected!");
+    Serial.println(WiFi.localIP());
   } else {
-    Serial.println("WiFi NOT connected");
+    Serial.println("WiFi failed to connect");
   }
 }
 
